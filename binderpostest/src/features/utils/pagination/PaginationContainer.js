@@ -42,6 +42,7 @@ export function PaginationContainer() {
     let lastItemPosition = activePage * itemsCountPerPage - 1;
     let nextItemSlice = items.slice(firstItemPosition, lastItemPosition);
     setItemsToDisplay(nextItemSlice);
+    console.log("Items to display: ", itemsToDisplay);
   }, [activePage]);
 
   if (error) {
