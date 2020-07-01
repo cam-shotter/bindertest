@@ -1,13 +1,15 @@
 import React from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export function BulkCardDisplayTable({ listOfCardsToDisplay }) {
   return (
-    <ul>
+    <Row>
       {listOfCardsToDisplay.map((item, index) => (
-        <li key={index}>
+        <Col xs={12} md={3} key={index}>
           {item.name} {item.id}
-        </li>
+        </Col>
       ))}
-    </ul>
+    </Row>
   );
 }

@@ -5,7 +5,7 @@ import { BulkCardDisplayTable } from "../../bulkCardDisplayTable/BulkCardDisplay
 //TODO think of better name for this component
 export function PaginationContainer() {
   const [activePage, setActivePage] = useState(1);
-  const [itemsCountPerPage, setItemsCountPerPage] = useState(10);
+  const [itemsCountPerPage, setItemsCountPerPage] = useState(12);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);

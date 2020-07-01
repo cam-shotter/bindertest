@@ -1,15 +1,20 @@
 import React from "react";
 import { PaginationContainer } from "./features/utils/pagination/PaginationContainer";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (
-    <div className="App">
+    <Container className="App">
       <header className="App-header">
-        <PaginationContainer />
+        <h1>BinderPOS Test</h1>
       </header>
-    </div>
+      <main className="App-body">
+        <PaginationContainer />
+      </main>
+    </Container>
   );
 }
 
