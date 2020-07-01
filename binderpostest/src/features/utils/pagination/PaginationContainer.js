@@ -37,13 +37,12 @@ export function PaginationContainer() {
   }, []);
   //TODO: setting state inside useEffect creates infinite loop, move object mapping out of this component
   useEffect(() => {
-    setItemsToDisplay(
-      items.slice(
-        activePage * itemsCountPerPage - itemsCountPerPage,
-        activePage * itemsCountPerPage
-      )
-    );
-  });
+    let firstItemPosition =
+      activePage * itemsCountPerPage - itemsCountPerPage - 1;
+    let lastItemPosition = activePage * itemsCountPerPage - 1;
+    let nextItemSlice = items.slice(firstItemPosition, lastItemPosition);
+    setItemsToDisplay(nextItemSlice);
+  }, [activePage]);
 
   if (error) {
     return <div>Error: {error.message}</div>;
