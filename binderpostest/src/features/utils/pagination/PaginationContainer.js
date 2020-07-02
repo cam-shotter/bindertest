@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "react-js-pagination";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import { BulkCardDisplayTable } from "../../bulkCardDisplayTable/BulkCardDisplayTable";
 
 //TODO think of better name for this component
@@ -53,15 +56,19 @@ export function PaginationContainer() {
     return (
       <div>
         <BulkCardDisplayTable listOfCardsToDisplay={itemsToDisplay} />
-        <Pagination
-          activePage={activePage}
-          itemsCountPerPage={itemsCountPerPage}
-          totalItemsCount={items.length}
-          pageRangeDisplayed={5}
-          onChange={setActivePage.bind(this)}
-          itemClass="page-item"
-          linkClass="page-link"
-        />
+        <Row>
+          <Col xs={12}>
+            <Pagination
+              activePage={activePage}
+              itemsCountPerPage={itemsCountPerPage}
+              totalItemsCount={items.length}
+              pageRangeDisplayed={5}
+              onChange={setActivePage.bind(this)}
+              itemClass="page-item"
+              linkClass="page-link"
+            />
+          </Col>
+        </Row>
       </div>
     );
   }

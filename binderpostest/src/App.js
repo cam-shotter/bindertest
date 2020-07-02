@@ -1,20 +1,29 @@
 import React from "react";
-import { PaginationContainer } from "./features/utils/pagination/PaginationContainer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+
+import { PaginationContainer } from "./features/utils/pagination/PaginationContainer";
+import { CardMoreInfo } from "./features/cards/CardMoreInfo";
 
 import "./App.scss";
 
 function App() {
   return (
-    <Container className="App">
-      <header className="App-header">
-        <h1>BinderPOS Test</h1>
-      </header>
-      <main className="App-body">
-        <PaginationContainer />
-      </main>
-    </Container>
+    <Router>
+      <Container className="App">
+        <header className="App-header">
+          <h1>BinderPOS Test</h1>
+        </header>
+        <main className="App-body">
+          <Switch>
+            <Route path="/:set/:collectornumber" children={<CardMoreInfo />} />
+            <Route path="/">
+              <PaginationContainer />
+            </Route>
+          </Switch>
+        </main>
+      </Container>
+    </Router>
   );
 }
 
