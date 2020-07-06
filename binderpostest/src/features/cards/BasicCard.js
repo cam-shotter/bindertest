@@ -30,7 +30,7 @@ export function BasicCard({ cardToDisplay }) {
           <Row>
             {Object.keys(cardToDisplay.legalities).map(
               (legalityType, index) => (
-                <Col xs={12} sm={6} key={index}>
+                <Col xs={6} className="legalities-box-space" key={index}>
                   <span className="legalities-box">{legalityType}</span>
                   {cardToDisplay.legalities[legalityType]}
                 </Col>

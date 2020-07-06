@@ -70,12 +70,7 @@ export function CardMoreInfo() {
                 <Row>
                   {Object.keys(cardDetails.legalities).map(
                     (legalityType, index) => (
-                      <Col
-                        xs={12}
-                        md={6}
-                        className="legalities-box-space"
-                        key={index}
-                      >
+                      <Col xs={6} className="legalities-box-space" key={index}>
                         <span className="legalities-box">{legalityType}</span>
                         {cardDetails.legalities[legalityType]}
                       </Col>
@@ -89,7 +84,8 @@ export function CardMoreInfo() {
             <Card>
               <Card.Header as="h3" className="card-header">
                 <Card.Title>
-                  {cardDetails.set_name}({cardDetails.set})
+                  {cardDetails.set_name}
+                  <span className="to-upper">({cardDetails.set})</span>
                 </Card.Title>
                 <Card.Subtitle>
                   {cardDetails.collector_number} {cardDetails.rarity}{" "}

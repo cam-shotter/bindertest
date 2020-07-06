@@ -57,7 +57,7 @@ export function PaginationContainer() {
       <div>
         <BulkCardDisplayTable listOfCardsToDisplay={itemsToDisplay} />
         <Row>
-          <Col xl={12}>
+          <Col>
             <Pagination
               activePage={activePage}
               itemsCountPerPage={itemsCountPerPage}
