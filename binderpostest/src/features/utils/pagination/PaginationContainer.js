@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import { BulkCardDisplayTable } from "../../bulkCardDisplayTable/BulkCardDisplayTable";
+import "./PaginationContainer.scss";
 
 //TODO think of better name for this component
 export function PaginationContainer() {
@@ -18,34 +19,33 @@ export function PaginationContainer() {
     fetch("https://api.scryfall.com/bulk-data/default_cards")
       .then((res) => res.json())
       .then(
-        (result) => {
-          fetch(result.download_uri)
+        (res) => {
+          fetch(res.download_uri)
             .then((res) => res.json())
-            .then((result) => {
-              setIsLoaded(true);
-              setItems(result);
+            .then((res) => {
+              setItems(res);
               setItemsToDisplay(
-                result.slice(
+                res.slice(
                   activePage * itemsCountPerPage - itemsCountPerPage,
                   activePage * itemsCountPerPage
                 )
               );
+              setIsLoaded(true);
             });
         },
         (error) => {
-          setIsLoaded(false);
           setError(error);
+          setIsLoaded(false);
         }
       );
   }, []);
-  //TODO: setting state inside useEffect creates infinite loop, move object mapping out of this component
+
   useEffect(() => {
     let firstItemPosition =
       activePage * itemsCountPerPage - itemsCountPerPage - 1;
     let lastItemPosition = activePage * itemsCountPerPage - 1;
     let nextItemSlice = items.slice(firstItemPosition, lastItemPosition);
     setItemsToDisplay(nextItemSlice);
-    console.log("Items to display: ", itemsToDisplay);
   }, [activePage]);
 
   if (error) {
@@ -57,7 +57,7 @@ export function PaginationContainer() {
       <div>
         <BulkCardDisplayTable listOfCardsToDisplay={itemsToDisplay} />
         <Row>
-          <Col xs={12}>
+          <Col xl={12}>
             <Pagination
               activePage={activePage}
               itemsCountPerPage={itemsCountPerPage}

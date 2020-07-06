@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #c0d1c2;
+  color: white;
 }
 
 .App-logo {
@@ -33,4 +35,23 @@
 
 .App-link {
   color: rgb(112, 76, 182);
+}
+
+.card-header {
+  background-color: #2e4347;
+  color: white;
+}
+
+.card-body {
+  background-color: #fefefe;
+  color: #222222;
+}
+
+.to_upper {
+  text-transform: capitalize;
+}
+
+.link-border {
+  border: 1px solid black;
+  padding: 0.2em;
 }

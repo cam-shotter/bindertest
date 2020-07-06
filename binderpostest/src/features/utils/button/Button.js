@@ -5,7 +5,7 @@ import {
   resetDefaultCards,
   selectTopXCards,
 } from "./buttonSlice";
-import styles from "./Button.module.scss";
+import styles from "./Button.scss";
 
 export function Counter() {
   const count = useSelector(selectTopXCards);

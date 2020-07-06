@@ -10,7 +10,7 @@ import "./App.scss";
 function App() {
   return (
     <Router>
-      <Container className="App">
+      <Container fluid className="App">
         <header className="App-header">
           <h1>BinderPOS Test</h1>
         </header>
